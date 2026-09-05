@@ -18,10 +18,23 @@ document.querySelectorAll('.desktop-nav a').forEach((link) => {
   });
 });
 
+const serviceMap = {
+  seo: 'Local SEO',
+  google: 'Google Business Profile',
+  social: 'Social Media',
+  ads: 'Ads',
+  reviews: 'Not sure yet',
+  website: 'Website',
+};
+
+const requestedService = new URLSearchParams(window.location.search).get('service');
+const serviceCheckbox = [...document.querySelectorAll('input[name="help"]')].find((input) => input.value === serviceMap[requestedService]);
+if (serviceCheckbox) serviceCheckbox.checked = true;
+
 document.querySelector('.audit-form')?.addEventListener('submit', (event) => {
   event.preventDefault();
   const form = event.currentTarget;
   const button = form.querySelector('button');
-  button.innerHTML = 'Request received <span>✓</span>';
+  button.innerHTML = 'Message received <span>✓</span>';
   button.disabled = true;
 });
