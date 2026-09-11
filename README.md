@@ -11,3 +11,4 @@ Pages:
 - [About](about.html)
 - [Journal: What Is Digital Marketing?](blog.html)
 - [Contact](contact.html)
+- [Privacy Policy](privacy.html)
