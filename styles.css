@@ -100,3 +100,7 @@ legend { font-family:var(--mono); font-size:10px; margin-bottom:8px; text-transf
 	.blog-article { padding-left:6vw; padding-right:6vw; }
 	.blog-article>p,.blog-article>ul,.blog-article>ol { font-size:15px; }
 }
+
+body { isolation:isolate; position:relative; }
+body::before { background:url('logo.svg') center/ min(680px, 72vw) auto no-repeat; content:''; inset:0; opacity:.07; pointer-events:none; position:fixed; z-index:0; }
+body > * { position:relative; z-index:1; }
