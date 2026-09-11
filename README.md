@@ -9,4 +9,5 @@ Pages:
 - [Home](index.html)
 - [Services](services.html)
 - [About](about.html)
+- [Journal: What Is Digital Marketing?](blog.html)
 - [Contact](contact.html)
