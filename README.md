@@ -2,7 +2,7 @@
 
 A four-page local marketing website for Togba Local.
 
-[Open the live website](https://salomonjr60-create.github.io/Togba88/)
+[Open the live website](https://togbalocalhub.com/)
 
 Pages:
 
