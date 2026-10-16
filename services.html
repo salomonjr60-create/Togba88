@@ -1,39 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5Q7BMGDS');</script>
-<!-- End Google Tag Manager -->
 <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1550205149745424');
-fbq('track', 'PageView');
-</script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1550205149745424&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18453429506"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'AW-18453429506');
-	gtag('config', 'G-QGR0JFWMJ2');
-</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Local SEO, Google Business Profile, social media, ads, reviews, and websites for local businesses." />
@@ -70,6 +42,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="https://www.facebook.com/togbalocalhub" target="_blank" rel="noopener noreferrer" aria-label="Togba Local Hub on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
 <a href="https://www.instagram.com/togbalocal/" target="_blank" rel="noopener noreferrer" aria-label="Togba Local on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
 </div><a href="services.html">Back to top ↑</a></footer>
-<script src="script.js"></script>
+<script>
+(function () {
+  var done = false;
+  function loadTracking() {
+    if (done) return; done = true;
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5Q7BMGDS');
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+    gtag('js', new Date()); gtag('config','AW-18453429506'); gtag('config','G-QGR0JFWMJ2');
+    var g = document.createElement('script'); g.async = true;
+    g.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18453429506';
+    document.head.appendChild(g);
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1550205149745424'); fbq('track','PageView');
+  }
+  ['scroll','pointerdown','keydown','touchstart'].forEach(function (ev) {
+    window.addEventListener(ev, loadTracking, { once: true, passive: true });
+  });
+  setTimeout(loadTracking, 6000);
+})();
+</script>
+<script src="script.js" defer></script>
 </body>
 </html>
