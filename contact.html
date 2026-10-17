@@ -54,6 +54,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   setTimeout(loadTracking, 6000);
 })();
 </script>
-<script src="script.js" defer></script>
+<script>
+document.addEventListener('submit', function (e) {
+  var form = e.target;
+  if (!form.matches('form[data-netlify="true"]')) return;
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  var btn = form.querySelector('button[type="submit"]');
+  if (btn) btn.disabled = true;
+  var body = new URLSearchParams(new FormData(form)).toString();
+  fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+    .then(function (r) { if (!r.ok) throw new Error('Failed'); window.location.href = '/thank-you'; })
+    .catch(function () {
+      if (btn) btn.disabled = false;
+      alert('Sorry, something went wrong. Please message us on WhatsApp: +971 56 241 1885');
+    });
+}, true);
+</script>
+  <script src="script.js" defer></script>
 </body>
 </html>
