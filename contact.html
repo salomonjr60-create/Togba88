@@ -57,7 +57,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 document.addEventListener('submit', function (e) {
   var form = e.target;
-  if (!form.matches('form[data-netlify="true"]')) return;
+  if (!form.matches('form[name="audit"]')) return;
   e.preventDefault();
   e.stopImmediatePropagation();
   var btn = form.querySelector('button[type="submit"]');
