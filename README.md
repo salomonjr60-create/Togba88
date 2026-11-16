@@ -14,6 +14,9 @@ Pages:
 - [Contact](contact.html)
 - [Privacy Policy](privacy.html)
 
+Deploy Preview builds are skipped using `netlify.toml`; production deployments
+continue normally. Existing preview URLs are not removed by this setting.
+
 ## AI chatbot
 
 The shared `script.js` loads the chatbot on each page. Netlify deploys its
