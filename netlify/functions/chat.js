@@ -32,11 +32,12 @@ exports.handler = async (event) => {
     return json(400, { error: 'Please send up to 10 messages of 500 characters or fewer.' });
   }
 
-  const { AZURE_API_KEY, AZURE_OPENAI_MODEL } = process.env;
+  const { AZURE_OPENAI_MODEL } = process.env;
+  const apiKey = process.env.AZURE_API_KEY || process.env.AZURE_OPENAI_API_KEY;
   const endpoint = process.env.AZURE_ENDPOINT || process.env.AZURE_OPENAI_ENDPOINT;
   const missing = [
     !endpoint && 'AZURE_ENDPOINT or AZURE_OPENAI_ENDPOINT',
-    !AZURE_API_KEY && 'AZURE_API_KEY',
+    !apiKey && 'AZURE_API_KEY or AZURE_OPENAI_API_KEY',
     !AZURE_OPENAI_MODEL && 'AZURE_OPENAI_MODEL',
   ].filter(Boolean);
   if (missing.length) {
@@ -47,7 +48,7 @@ exports.handler = async (event) => {
   try {
     const response = await fetch(`${endpoint.replace(/\/+$/, '')}/chat/completions`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'api-key': AZURE_API_KEY },
+      headers: { 'Content-Type': 'application/json', 'api-key': apiKey },
       body: JSON.stringify({
         model: AZURE_OPENAI_MODEL,
         messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...body.messages],
