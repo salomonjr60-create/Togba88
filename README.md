@@ -17,8 +17,11 @@ Pages:
 ## AI chatbot
 
 The shared `script.js` loads the chatbot on each page. Netlify deploys its
-backend from `netlify/functions/chat.js`. Set `AZURE_ENDPOINT` (the Azure
-OpenAI v1 endpoint), `AZURE_API_KEY`, and `AZURE_OPENAI_MODEL` (the deployment
-name) in Netlify environment variables with Functions scope, then redeploy.
+backend from `netlify/functions/chat.js`. Set `AZURE_ENDPOINT` (or
+`AZURE_OPENAI_ENDPOINT`) to the Azure OpenAI v1 endpoint, `AZURE_API_KEY`, and
+`AZURE_OPENAI_MODEL` (the deployment name) in Netlify environment variables
+with Functions scope, then redeploy. If both endpoint names are set,
+`AZURE_ENDPOINT` takes precedence. Missing variable names are logged in
+Netlify's function logs, without their values.
 Never commit API keys. The public function can incur Azure usage charges;
 configure platform-level rate limiting and usage monitoring before production.

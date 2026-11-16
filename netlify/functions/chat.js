@@ -32,14 +32,20 @@ exports.handler = async (event) => {
     return json(400, { error: 'Please send up to 10 messages of 500 characters or fewer.' });
   }
 
-  const { AZURE_ENDPOINT, AZURE_API_KEY, AZURE_OPENAI_MODEL } = process.env;
-  if (!AZURE_ENDPOINT || !AZURE_API_KEY || !AZURE_OPENAI_MODEL) {
-    console.error('Azure OpenAI environment variables are not configured.');
+  const { AZURE_API_KEY, AZURE_OPENAI_MODEL } = process.env;
+  const endpoint = process.env.AZURE_ENDPOINT || process.env.AZURE_OPENAI_ENDPOINT;
+  const missing = [
+    !endpoint && 'AZURE_ENDPOINT or AZURE_OPENAI_ENDPOINT',
+    !AZURE_API_KEY && 'AZURE_API_KEY',
+    !AZURE_OPENAI_MODEL && 'AZURE_OPENAI_MODEL',
+  ].filter(Boolean);
+  if (missing.length) {
+    console.error('Missing Azure OpenAI environment variables:', missing.join(', '));
     return json(503, { error: 'Chat is temporarily unavailable. Please contact us via WhatsApp or our contact page.' });
   }
 
   try {
-    const response = await fetch(`${AZURE_ENDPOINT.replace(/\/+$/, '')}/chat/completions`, {
+    const response = await fetch(`${endpoint.replace(/\/+$/, '')}/chat/completions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'api-key': AZURE_API_KEY },
       body: JSON.stringify({
