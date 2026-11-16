@@ -31,6 +31,11 @@ const requestedService = new URLSearchParams(window.location.search).get('servic
 const serviceCheckbox = [...document.querySelectorAll('input[name="help"]')].find((input) => input.value === serviceMap[requestedService]);
 if (serviceCheckbox) serviceCheckbox.checked = true;
 
+const chatbotScript = document.createElement('script');
+chatbotScript.src = '/assets/chatbot.js';
+chatbotScript.defer = true;
+document.head.appendChild(chatbotScript);
+
 document.querySelector('.audit-form')?.addEventListener('submit', (event) => {
   event.preventDefault();
   const form = event.currentTarget;
